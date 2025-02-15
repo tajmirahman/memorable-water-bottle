@@ -1,15 +1,16 @@
+import './Bottol.css'
 
+const Bottol = ({ bottol, handleAdd }) => {
+    // console.log(bottol);
 
-const Bottol = ({bottol}) => {
-    console.log(bottol);
-
-    const {name, img, price}=bottol;
+    const { name, img, price } = bottol;
 
     return (
-        <div>
+        <div className="bottol">
             <h3>name -{name}</h3>
-            <img src={img} alt="" />
+            <img className='bottol-img' src={img} alt="" />
             <p>Price- {price}</p>
+            <button onClick={()=> handleAdd(bottol)}>Purches</button>
         </div>
     );
 };

@@ -1,29 +1,37 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Bottol from "../Bottol/Bottol";
+import './Bottols.css'
 
 
 const Bottols = () => {
 
-    const [bottols, setBottols]=useState([]);
+    const [bottols, setBottols] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('bottols.json')
-        .then(res=>res.json())
-        .then(data=>setBottols(data))
-    } , [])
+            .then(res => res.json())
+            .then(data => setBottols(data))
+    }, [])
+
+    const handleAdd=(bottol)=>{
+        console.log(bottol);
+    }
 
 
     return (
         <div>
             <h3>Bottols Available -{bottols.length}</h3>
 
-        {
-            bottols.map(bottol=> <Bottol 
+            <div className="bottols-container">
+                {
+                    bottols.map(bottol => <Bottol
+                        key={bottols.id}
+                        handleAdd={handleAdd}
+                        bottol={bottol}></Bottol>)
+                }
                 
-                key={bottols.id}
-                bottol={bottol}></Bottol>)
-        }
+            </div>
 
         </div>
     );
