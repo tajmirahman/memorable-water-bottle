@@ -1,16 +1,16 @@
 import './Bottol.css'
 
-const Bottol = ({ bottol, handleAdd }) => {
+const Bottol = ({ bottol, handleAdToCart }) => {
     // console.log(bottol);
 
     const { name, img, price } = bottol;
 
     return (
         <div className="bottol">
-            <h3>name -{name}</h3>
+            <h3>{name}</h3>
             <img className='bottol-img' src={img} alt="" />
             <p>Price- {price}</p>
-            <button onClick={()=> handleAdd(bottol)}>Purches</button>
+            <button onClick={()=> handleAdToCart(bottol)}>Purches</button>
         </div>
     );
 };
