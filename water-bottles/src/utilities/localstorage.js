@@ -20,4 +20,10 @@ const addToLS= id=>{
     saveLocalStore(cart);
 }
 
-export { addToLS };
+const removeFromLs=id=>{
+    const cart=getStoreCart();
+    const remaining= cart.filter(idx=> idx !== id);
+    saveLocalStore(remaining);
+}
+
+export { addToLS, getStoreCart, removeFromLs };
